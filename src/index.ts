@@ -4,7 +4,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const VERIFY_TOKEN = process.env.VERIFY_TOKEN || "your_custom_token";
+const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
 app.use(express.json());
 
