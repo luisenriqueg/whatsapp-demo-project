@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import { sendWhatsAppMessage } from "./messages/text_message";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -23,8 +24,9 @@ app.get("/webhook", (req: Request, res: Response) => {
 });
 
 // POST for webhook callbacks
-app.post("/webhook", (req: Request, res: Response) => {
+app.post("/webhook", async (req: Request, res: Response) => {
   console.log("Incoming message:", JSON.stringify(req.body, null, 2));
+  await sendWhatsAppMessage();
   res.sendStatus(200);
 });
 
