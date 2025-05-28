@@ -11,7 +11,7 @@ interface WhatsAppMessagePayload {
 
 export async function sendWhatsAppMessage() {
   const apiVersion = "v22.0";
-  const phoneNumberId = "15556580163";
+  const phoneNumberId = "686283031229166";
   const accessToken = process.env.GRAPH_API_ACCESS_TOKEN;
   const recipientPhoneNumber = "+5511968577558";
   const messageBody =
