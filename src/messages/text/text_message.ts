@@ -1,11 +1,15 @@
 import type { WhatsAppMessagePayload } from "./text_messages_DTO.js";
 import { GRAPH_API_VERSION, WHATSAPP_PHONE_NUMBER_ID } from "../../constants";
 
-export async function sendWhatsAppMessage() {
+export async function sendWhatsAppMessage({
+  senderPhoneNumber,
+}: {
+  senderPhoneNumber: string;
+}): Promise<void> {
   const apiVersion = GRAPH_API_VERSION;
   const phoneNumberId = WHATSAPP_PHONE_NUMBER_ID;
   const accessToken = process.env.GRAPH_API_ACCESS_TOKEN;
-  const recipientPhoneNumber = "+5511968577558";
+  const recipientPhoneNumber = `+${senderPhoneNumber}`;
   const messageBody =
     "Hello from WhatsApp NodeJS Typescript API! This is a test message.";
   const enablePreview = true; // or false
