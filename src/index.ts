@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import { sendWhatsAppMessage } from "./messages/text/text_message";
 import dotenv from "dotenv";
 import { WhatsAppWebhookPayload } from "./webhooks/webhook_payloads_DTO";
+import { getWhatsAppWebhookType } from "./utils/getWhatsAppWebhookType";
 dotenv.config();
 
 const app = express();
@@ -29,7 +30,8 @@ app.post("/webhook", async (req: Request, res: Response) => {
   console.log("Incoming message:", JSON.stringify(req.body, null, 2));
   // await sendWhatsAppMessage();
 
-  const incoming_message: WhatsAppWebhookPayload = req.body;
+  const incoming_webhook: WhatsAppWebhookPayload = req.body;
+  getWhatsAppWebhookType(incoming_webhook);
 
   res.sendStatus(200);
 });
