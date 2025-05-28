@@ -1,29 +1,23 @@
-import type { WhatsAppMessagePayload } from "./text_messages_DTO.js";
+import type { MarkReadPayload } from "./mark_as_read_DTO";
 import { GRAPH_API_VERSION, WHATSAPP_PHONE_NUMBER_ID } from "../../constants";
 
-export async function sendWhatsAppMessage() {
+export async function markMessageAsRead({
+  whatsappMessageId,
+}: {
+  whatsappMessageId: string;
+}) {
   const apiVersion = GRAPH_API_VERSION;
   const phoneNumberId = WHATSAPP_PHONE_NUMBER_ID;
   const accessToken = process.env.GRAPH_API_ACCESS_TOKEN;
-  const recipientPhoneNumber = "+5511968577558";
-  const messageBody =
-    "Hello from WhatsApp NodeJS Typescript API! This is a test message.";
-  const enablePreview = true; // or false
+  const messageId = whatsappMessageId;
 
   const url = `https://graph.facebook.com/${apiVersion}/${phoneNumberId}/messages`;
 
-  const payload: WhatsAppMessagePayload = {
+  const payload: MarkReadPayload = {
     messaging_product: "whatsapp",
-    recipient_type: "individual",
-    to: recipientPhoneNumber,
-    type: "text",
-    text: {
-      preview_url: enablePreview,
-      body: messageBody,
-    },
+    status: "read",
+    message_id: messageId,
   };
-
-  console.log("accessToken:", accessToken);
 
   try {
     const response = await fetch(url, {
@@ -36,8 +30,8 @@ export async function sendWhatsAppMessage() {
     });
 
     const data = await response.json();
-    console.log("Message sent:", data);
+    console.log("Mark as read response:", data);
   } catch (error) {
-    console.error("Failed to send WhatsApp message:", error);
+    console.error("Error marking message as read:", error);
   }
 }
