@@ -26,7 +26,7 @@ app.get("/webhook", (req: Request, res: Response) => {
 // POST for webhook callbacks
 app.post("/webhook", async (req: Request, res: Response) => {
   console.log("Incoming message:", JSON.stringify(req.body, null, 2));
-  await sendWhatsAppMessage();
+  // await sendWhatsAppMessage();
   res.sendStatus(200);
 });
 
