@@ -1,6 +1,9 @@
+import { markMessageAsRead } from "../messages/mark_as_read/mark_as_read";
 import { WhatsAppWebhookPayload } from "../webhooks/webhook_payloads_DTO";
 
-export function getWhatsAppWebhookType(webhook: WhatsAppWebhookPayload): void {
+export async function genWhatsAppWebhookType(
+  webhook: WhatsAppWebhookPayload
+): Promise<void> {
   for (const entry of webhook.entry) {
     for (const change of entry.changes) {
       if (change.field === "messages") {
@@ -18,6 +21,9 @@ export function getWhatsAppWebhookType(webhook: WhatsAppWebhookPayload): void {
           switch (message.type) {
             case "text":
               console.log("Text:", message.text.body);
+              await markMessageAsRead({
+                whatsappMessageId: message.id,
+              });
               break;
             case "reaction":
               console.log("Emoji:", message.reaction.emoji);
