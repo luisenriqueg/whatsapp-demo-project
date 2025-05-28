@@ -1,0 +1,2 @@
+export const GRAPH_API_VERSION = "v22.0";
+export const WHATSAPP_PHONE_NUMBER_ID = 686283031229166;

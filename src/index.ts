@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { sendWhatsAppMessage } from "./messages/text_message";
+import { sendWhatsAppMessage } from "./messages/text/text_message";
 import dotenv from "dotenv";
 dotenv.config();
 

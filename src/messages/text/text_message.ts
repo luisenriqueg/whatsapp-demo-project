@@ -1,17 +1,9 @@
-interface WhatsAppMessagePayload {
-  messaging_product: "whatsapp";
-  recipient_type: "individual";
-  to: string;
-  type: "text";
-  text: {
-    preview_url: boolean;
-    body: string;
-  };
-}
+import type { WhatsAppMessagePayload } from "./text_messages.d.ts";
+import { GRAPH_API_VERSION, WHATSAPP_PHONE_NUMBER_ID } from "../../constants";
 
 export async function sendWhatsAppMessage() {
-  const apiVersion = "v22.0";
-  const phoneNumberId = "686283031229166";
+  const apiVersion = GRAPH_API_VERSION;
+  const phoneNumberId = WHATSAPP_PHONE_NUMBER_ID;
   const accessToken = process.env.GRAPH_API_ACCESS_TOKEN;
   const recipientPhoneNumber = "+5511968577558";
   const messageBody =
