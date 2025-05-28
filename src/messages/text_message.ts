@@ -31,6 +31,8 @@ export async function sendWhatsAppMessage() {
     },
   };
 
+  console.log("accessToken:", accessToken);
+
   try {
     const response = await fetch(url, {
       method: "POST",
