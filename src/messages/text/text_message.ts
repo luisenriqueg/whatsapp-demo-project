@@ -10,8 +10,7 @@ export async function sendWhatsAppMessage({
   const phoneNumberId = WHATSAPP_PHONE_NUMBER_ID;
   const accessToken = process.env.GRAPH_API_ACCESS_TOKEN;
   const recipientPhoneNumber = `+${senderPhoneNumber}`;
-  const messageBody =
-    "Hello from WhatsApp NodeJS Typescript API! This is a test message.";
+  const messageBody = "That's great! Welcome to Cloud API";
   const enablePreview = true; // or false
 
   const url = `https://graph.facebook.com/${apiVersion}/${phoneNumberId}/messages`;

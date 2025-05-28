@@ -11,6 +11,16 @@ const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
 app.use(express.json());
 
+// POST for webhook callbacks
+app.post("/webhook", async (req: Request, res: Response) => {
+  console.log("Incoming message:", JSON.stringify(req.body, null, 2));
+
+  const incoming_webhook: WhatsAppWebhookPayload = req.body;
+  await genWhatsAppWebhookType(incoming_webhook);
+
+  res.sendStatus(200);
+});
+
 // GET for webhook verification
 app.get("/webhook", (req: Request, res: Response) => {
   const mode = req.query["hub.mode"];
@@ -23,16 +33,6 @@ app.get("/webhook", (req: Request, res: Response) => {
   } else {
     res.sendStatus(403);
   }
-});
-
-// POST for webhook callbacks
-app.post("/webhook", async (req: Request, res: Response) => {
-  console.log("Incoming message:", JSON.stringify(req.body, null, 2));
-
-  const incoming_webhook: WhatsAppWebhookPayload = req.body;
-  await genWhatsAppWebhookType(incoming_webhook);
-
-  res.sendStatus(200);
 });
 
 app.listen(PORT, () => {
