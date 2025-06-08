@@ -2,14 +2,14 @@ import type { WhatsAppMessagePayload } from "./text_messages_DTO.js";
 import { GRAPH_API_VERSION, WHATSAPP_PHONE_NUMBER_ID } from "../../constants";
 
 export async function sendWhatsAppMessage({
-  senderPhoneNumber,
+  recipient_phone_number,
 }: {
-  senderPhoneNumber: string;
+  recipient_phone_number: string;
 }): Promise<void> {
   const apiVersion = GRAPH_API_VERSION;
   const phoneNumberId = WHATSAPP_PHONE_NUMBER_ID;
   const accessToken = process.env.GRAPH_API_ACCESS_TOKEN;
-  const recipientPhoneNumber = `+${senderPhoneNumber}`;
+  const recipientPhoneNumber = `+${recipient_phone_number}`;
   const messageBody = "That's great! Welcome to Cloud API";
   const enablePreview = true; // or false
 

@@ -1,9 +1,9 @@
-import { send } from "process";
 import { markMessageAsRead } from "../messages/mark_as_read/mark_as_read";
 import { WhatsAppWebhookPayload } from "../webhooks/webhook_payloads_DTO";
 import { sendWhatsAppMessage } from "../messages/text/text_message";
+import { sendWhatsAppAudio } from "../messages/audio/audio_message";
 
-export async function genWhatsAppWebhookType(
+export async function genProcessWhatsAppWebhook(
   webhook: WhatsAppWebhookPayload
 ): Promise<void> {
   for (const entry of webhook.entry) {
@@ -26,7 +26,10 @@ export async function genWhatsAppWebhookType(
               await markMessageAsRead({
                 whatsappMessageId: message.id,
               });
-              await sendWhatsAppMessage({ senderPhoneNumber: senderPhone });
+              await sendWhatsAppMessage({
+                recipient_phone_number: senderPhone,
+              });
+              await sendWhatsAppAudio({ recipient_phone_number: senderPhone });
               break;
             case "reaction":
               console.log("Emoji:", message.reaction.emoji);
