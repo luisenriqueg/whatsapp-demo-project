@@ -25,17 +25,17 @@ export async function sendWhatsAppCTAMessage({
         },
       },
       body: {
-        text: "Tap the button below to see available dates.",
+        text: "Click the button below to see some nice discounts.",
       },
       action: {
         name: "cta_url",
         parameters: {
-          display_text: "See Dates",
+          display_text: "See Discounts",
           url: "https://www.facebook.com",
         },
       },
       footer: {
-        text: "Dates subject to change.",
+        text: "Promotions and discounts for limited time only!",
       },
     },
   };
