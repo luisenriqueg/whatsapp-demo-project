@@ -4,8 +4,9 @@ import { GRAPH_API_VERSION, WHATSAPP_PHONE_NUMBER_ID } from "../../constants";
 
 // Use either `id` (recommended) or `link` (less secure)
 const media = {
-  id: "950544253917407", // Uncomment if using uploaded media
+  // id: "950544253917407", // Uncomment if using uploaded media
   // link: "https://drive.google.com/file/d/1Fu_ND2LXSFEUgLwwXfuLxdpIRUp-aWgy/uc?export=download",
+  link: "https://lookaside.facebook.com/sound/download/?audio_resource_id=950544253917407",
 };
 
 export async function sendWhatsAppAudio({
@@ -37,6 +38,8 @@ export async function sendWhatsAppAudio({
       },
       body: JSON.stringify(body),
     });
+
+    console.log("Send Audio Response", response);
 
     const data = await response.json();
 
