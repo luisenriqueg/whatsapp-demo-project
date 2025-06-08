@@ -5,7 +5,8 @@ import { GRAPH_API_VERSION, WHATSAPP_PHONE_NUMBER_ID } from "../../constants";
 // Use either `id` (recommended) or `link` (less secure)
 const media = {
   // id: '<MEDIA_ID>', // Uncomment if using uploaded media
-  link: "http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3", // Uncomment if using hosted media
+  link: "https://drive.google.com/file/d/1Fu_ND2LXSFEUgLwwXfuLxdpIRUp-aWgy/view?usp=sharing",
+  // link: "http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3", // Uncomment if using hosted media
 };
 
 export async function sendWhatsAppAudio({
