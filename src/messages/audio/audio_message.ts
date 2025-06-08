@@ -4,9 +4,9 @@ import { GRAPH_API_VERSION, WHATSAPP_PHONE_NUMBER_ID } from "../../constants";
 
 // Use either `id` (recommended) or `link` (less secure)
 const media = {
-  id: "24131251279844243", // Uncomment if using uploaded media
+  // id: "24131251279844243", // Uncomment if using uploaded media
   // link: "https://drive.google.com/file/d/1Fu_ND2LXSFEUgLwwXfuLxdpIRUp-aWgy/uc?export=download",
-  // link: "https://lookaside.facebook.com/sound/download/?audio_resource_id=950544253917407",
+  link: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
 };
 
 export async function sendWhatsAppAudio({
