@@ -6,7 +6,7 @@ import { GRAPH_API_VERSION, WHATSAPP_PHONE_NUMBER_ID } from "../../constants";
 const media = {
   // id: "24131251279844243", // Uncomment if using uploaded media
   // link: "https://drive.google.com/file/d/1Fu_ND2LXSFEUgLwwXfuLxdpIRUp-aWgy/uc?export=download",
-  link: "https://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg",
+  link: "https://thetestdata.com/assets/audio/m4a/thetestdata-sample-m4a-1.m4a",
 };
 
 export async function sendWhatsAppAudio({
