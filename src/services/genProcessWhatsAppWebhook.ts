@@ -2,6 +2,7 @@ import { markMessageAsRead } from "../messages/mark_as_read/mark_as_read";
 import { WhatsAppWebhookPayload } from "../webhooks/webhook_payloads_DTO";
 import { sendWhatsAppMessage } from "../messages/text/text_message";
 import { sendWhatsAppAudio } from "../messages/audio/audio_message";
+import { sendWhatsAppCTAMessage } from "../messages/cta/cta_message";
 
 export async function genProcessWhatsAppWebhook(
   webhook: WhatsAppWebhookPayload
@@ -30,6 +31,9 @@ export async function genProcessWhatsAppWebhook(
                 recipient_phone_number: senderPhone,
               });
               await sendWhatsAppAudio({ recipient_phone_number: senderPhone });
+              await sendWhatsAppCTAMessage({
+                recipient_phone_number: senderPhone,
+              });
               break;
             case "reaction":
               console.log("Emoji:", message.reaction.emoji);
